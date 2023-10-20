@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "baseUrl": "./",
+        "paths": {
+            "@nurbxfit": ["packages/*"]
+        },
+        "target": "ESNext",
+        "module": "CommonJS",
+        "outDir": "dist",
+        "rootDir": "src",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "experimentalDecorators": true
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx"
+    ]
+}

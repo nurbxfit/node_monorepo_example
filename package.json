@@ -1,0 +1,16 @@
+{
+  "name": "node_monorepo_example",
+  "version": "1.0.0",
+  "description": "simple example of monorepo using node.js",
+  "main": "index.js",
+  "repository": "https://github.com/nurbxfit/node_monorepo_example.git",
+  "author": "Nurbxfit",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "projects/*"
+  ],
+  "devDependencies": {
+  }
+}

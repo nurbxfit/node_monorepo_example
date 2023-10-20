@@ -1,0 +1,23 @@
+{
+	"name": "apiv1",
+	"version": "1.0.0",
+	"description": "example api project for this monorepo",
+	"repository": "https://github.com/nurbxfit/node_monorepo_example.git",
+	"author": "Nurbxfit",
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc -p tsconfig.json",
+		"dev": "yarn tsx watch src/main.ts"
+	},
+	"dependencies": {
+		"@nurbxfit/common": "^1.0.0",
+		"@nurbxfit/domain": "^1.0.0",
+		"@nurbxfit/infra": "^1.0.0",
+		"dotenv": "^16.3.1",
+		"tsx": "^3.14.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.8.7",
+		"typescript": "^4.9.5"
+	}
+}
