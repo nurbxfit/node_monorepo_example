@@ -2,8 +2,7 @@
 
 Simple Example of Javascript monorepo project using `yarn workspace`.
 Just for reference for anyone out there.
-
-It showcase seperation of codes based on their categories.
+This is how I structure my code if I am building a monorepo project
 
 more things will be added soon.
 
