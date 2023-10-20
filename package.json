@@ -12,5 +12,8 @@
     "projects/*"
   ],
   "devDependencies": {
+  },
+  "scripts": {
+    "docker-run:db" : "sh ./scripts/spawn_db.sh" 
   }
 }

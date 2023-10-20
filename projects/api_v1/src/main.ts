@@ -1,11 +1,13 @@
 import { HttpServer } from "@nurbxfit/infra";
 import dotenv from "dotenv";
-import { exampleRoutes } from "./routes/example.route";
+import { ExampleRoutes } from "./routes/example.route";
+import { UserRoutes } from "./routes/user.route";
 
 dotenv.config();
 
 async function main() {
 	try {
+		console.log("Process.env.DATABASE_URL:", process.env.DATABASE_URL);
 		/**
 		 * This part look too messy maybe can make it more compact
 		 * ntah lah, nanti jadi complicated sgt pulak.
@@ -14,8 +16,12 @@ async function main() {
 		await HttpServer(
 			[
 				{
-					path: "/api/v1",
-					router: exampleRoutes,
+					path: "/api/v1/hello",
+					router: ExampleRoutes,
+				},
+				{
+					path: "/api/v1/users",
+					router: UserRoutes,
 				},
 			],
 			{

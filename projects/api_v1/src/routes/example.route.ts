@@ -8,4 +8,4 @@ router.get("/example", (req, res, next) => {
 	});
 });
 
-export const exampleRoutes = router;
+export const ExampleRoutes = router;

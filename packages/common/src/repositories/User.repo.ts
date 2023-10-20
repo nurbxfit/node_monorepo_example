@@ -8,7 +8,7 @@ export class UserRepository extends PrismaRepository<"user"> {
 
 	async someExtendedMethod() {
 		const result = await this.findFirst({ where: { id: 1 } });
-		return result.name + " Hell World";
+		return result.email + " Hell World";
 	}
 }
 
