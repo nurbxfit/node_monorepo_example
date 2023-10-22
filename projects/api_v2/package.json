@@ -5,6 +5,7 @@
 	"repository": "https://github.com/nurbxfit/node_monorepo_example.git",
 	"author": "Nurbxfit",
 	"license": "MIT",
+	"module": "dist/index.js",
 	"scripts": {
 		"build": "tsc -p tsconfig.json",
 		"dev": "yarn tsx watch src/main.ts"

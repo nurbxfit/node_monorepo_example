@@ -71,6 +71,7 @@ export const HttpServer = (
 		} catch (err) {
 			console.error("Http_server_failed to start:", err);
 		}
+		return httpServer;
 	};
 
 	return {
