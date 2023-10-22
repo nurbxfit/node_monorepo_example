@@ -1,13 +1,10 @@
 import { GetUserRequest, userService } from "@nurbxfit/domain";
 import { Request, Response, NextFunction } from "express";
-
-type RequestObject<ZodSchema> = Request & {
-	query: ZodSchema;
-};
+import { GetRequestObject } from "@nurbxfit/infra";
 
 export const UserController = {
 	async getUser(
-		req: RequestObject<GetUserRequest>,
+		req: GetRequestObject<GetUserRequest>,
 		res: Response,
 		next: NextFunction
 	) {

@@ -1,9 +1,15 @@
-import express, { Express, Router } from "express";
+import express, { Express, NextFunction, Request, Response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 
 type ServerRoutes = { path: string; router: express.Router }[];
 
+export type CustomMiddleware = (
+	error: any,
+	req: Request,
+	res: Response,
+	next: NextFunction
+) => any;
 /**
  * Server.ts
  * Exampel usage:
@@ -23,6 +29,7 @@ export const HttpServer = (
 		port?: number;
 		corsOptions?: cors.CorsOptions;
 		bodyParserOptions?: bodyParser.OptionsJson;
+		globalMiddlewares?: CustomMiddleware[];
 	}
 ) => {
 	const {
@@ -44,6 +51,12 @@ export const HttpServer = (
 
 	for (const { path, router } of routes) {
 		httpServer.use(path, router);
+	}
+
+	if (options.globalMiddlewares) {
+		for (const middleware of options?.globalMiddlewares) {
+			httpServer.use(middleware);
+		}
 	}
 
 	const PORT = port ?? (process.env.HTTP_PORT || 4444);
