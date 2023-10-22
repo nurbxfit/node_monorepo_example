@@ -59,6 +59,9 @@ export const HttpServer = (
 		}
 	}
 
+	// disable x-powered-by header
+	httpServer.disable("x-powered-by");
+
 	const PORT = port ?? (process.env.HTTP_PORT || 4444);
 	const start = () => {
 		try {
