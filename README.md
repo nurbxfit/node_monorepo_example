@@ -6,7 +6,7 @@ A simple example of a monorepo project using Node.js and Yarn workspaces. This r
 
 - Structured monorepo project
 - Integration with Prisma for database management
-- Docker setup for PostgreSQL database
+- Docker setup for PostgreSQL database (optional)
 
 # Getting Started
 
@@ -59,6 +59,115 @@ This command runs the spawn_db.sh script.
 ```bash
 yarn workspace apiv1 dev
 ```
+
+# Project structure
+
+```
+.
+├── README.md
+├── package.json
+├── packages
+│   ├── common
+│   │   ├── index.ts
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── errors
+│   │   │   │   ├── BadRequest.error.ts
+│   │   │   │   ├── Forbidden.error.ts
+│   │   │   │   ├── HttpError.ts
+│   │   │   │   ├── InternalServer.error.ts
+│   │   │   │   ├── NotFound.error.ts
+│   │   │   │   ├── ServiceUnavailable.error.ts
+│   │   │   │   ├── Unauthorized.error.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── index.ts
+│   │   │   ├── repositories
+│   │   │   │   └── User.repo.ts
+│   │   │   └── utils
+│   │   │       └── parser.util.ts
+│   │   └── tsconfig.json
+│   ├── db
+│   │   ├── env.example
+│   │   ├── index.ts
+│   │   ├── package.json
+│   │   ├── prisma
+│   │   │   ├── migrations
+│   │   │   │   ├── 20231022044921_change_user_table
+│   │   │   │   │   └── migration.sql
+│   │   │   │   └── migration_lock.toml
+│   │   │   └── schema.prisma
+│   │   ├── src
+│   │   │   ├── client.ts
+│   │   │   ├── index.ts
+│   │   │   ├── prisma.repo.ts
+│   │   │   └── seeds
+│   │   │       ├── index.ts
+│   │   │       └── user.seed.ts
+│   │   └── tsconfig.json
+│   ├── domain
+│   │   ├── index.ts
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── index.ts
+│   │   │   └── modules
+│   │   │       ├── auth
+│   │   │       │   ├── auth.service.ts
+│   │   │       │   ├── auth.validation.ts
+│   │   │       │   └── index.ts
+│   │   │       ├── example
+│   │   │       │   └── examaple.service.ts
+│   │   │       └── user
+│   │   │           ├── index.ts
+│   │   │           ├── user.service.ts
+│   │   │           └── user.validation.ts
+│   │   └── tsconfig.json
+│   └── infra
+│       ├── index.ts
+│       ├── package.json
+│       ├── src
+│       │   ├── http
+│       │   │   ├── HttpController.ts
+│       │   │   ├── index.ts
+│       │   │   ├── middlewares
+│       │   │   │   ├── ErrorHandler.middleware.ts
+│       │   │   │   └── Validator.middleware.ts
+│       │   │   ├── server.ts
+│       │   │   └── types.ts
+│       │   ├── index.ts
+│       │   └── trpc
+│       ├── tsconfig.json
+│       └── yarn-error.log
+├── projects
+│   ├── api_v1
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── controllers
+│   │   │   │   ├── auth.controller.ts
+│   │   │   │   └── user.controller.ts
+│   │   │   ├── main.ts
+│   │   │   └── routes
+│   │   │       ├── auth.routes.ts
+│   │   │       ├── example.route.ts
+│   │   │       └── user.route.ts
+│   │   └── tsconfig.json
+│   └── api_v2
+│       ├── package.json
+│       ├── src
+│       └── tsconfig.json
+├── scripts
+│   └── spawn_db.sh
+└── yarn.lock
+```
+
+- `packages/` contains shared packages:
+  - `common`: Common utilities, custom errors, and repositories.
+  - `db`: Database client and Prisma-based repositories.
+  - `domain`: Business logic modules, including authentication and user management.
+  - `infra`: Infrastructure for HTTP and tRPC servers.
+- `projects/` contains API projects:
+  - `api_v1`: An API project with controllers and routes.
+  - `api_v2`: Some example of other project
+- `scripts/` offers useful scripts for tasks like database setup (optional).
 
 # License
 
