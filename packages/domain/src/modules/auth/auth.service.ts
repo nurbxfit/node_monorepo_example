@@ -1,5 +1,8 @@
-import { BadRequestError, UserRepository } from "@nurbxfit/common";
-import { userRepository } from "@nurbxfit/common/src/repositories/User.repo";
+import {
+	BadRequestError,
+	UserRepository,
+	userRepository,
+} from "@nurbxfit/common";
 
 class AuthService {
 	constructor(protected userRepo: UserRepository) {}

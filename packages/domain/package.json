@@ -5,6 +5,8 @@
   "repository": "https://github.com/nurbxfit/node_monorepo_example.git",
   "author": "Nurbxfit",
   "license": "MIT",
+  "main": "dist/index.js",
+	"module": "dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json"
   },

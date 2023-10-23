@@ -12,7 +12,8 @@
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "moduleResolution": "node"
     },
     "include": [
         "src/**/*.ts",

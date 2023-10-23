@@ -1,5 +1,4 @@
-import { UserRepository } from "@nurbxfit/common";
-import { userRepository } from "@nurbxfit/common/src/repositories/User.repo";
+import { UserRepository, userRepository } from "@nurbxfit/common";
 
 /**
  * Should use tsyringe or something for DI, but too lazy

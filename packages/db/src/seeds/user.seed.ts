@@ -1,4 +1,3 @@
-import { PrismaRepository } from "src/prisma.repo";
 import type { PrismaClient } from "@prisma/client";
 
 export const UserSeed = (prisma: PrismaClient) => {
@@ -6,6 +5,8 @@ export const UserSeed = (prisma: PrismaClient) => {
 		const user1 = await prisma.user.create({
 			data: {
 				email: "example@hotmail.com",
+				name: "example",
+				password: "password123",
 			},
 		});
 

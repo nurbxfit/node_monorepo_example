@@ -1,4 +1,4 @@
-export function parseArrayBufferToUtf8(obj: any) {
+export function parseArrayBufferToUtf8(obj: any): any {
 	if (Buffer.isBuffer(obj)) {
 		return obj.toString("utf8");
 	}
