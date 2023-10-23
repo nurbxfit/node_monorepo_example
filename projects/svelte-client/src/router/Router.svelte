@@ -1,4 +1,5 @@
 <script lang="ts">
+	import "../app.css";
 	import { Router, Route, Link } from "svelte-navigator";
 	import Home from "../pages/Home.svelte";
 	import TrpcTest from "../pages/TrpcTest.svelte";
@@ -11,10 +12,10 @@
 </script>
 
 <Router {url}>
-	<nav>
-		<Link to="/">Home</Link>
-		<Link to="/test-trpc">TRPC</Link>
-		<Link to="/test-http">HTTP</Link>
+	<nav class="flex p-2 gap-1 bg-slate-800 text-white">
+		<Link class="border p-2" to="/">Home</Link>
+		<Link class="border p-2" to="/test-trpc">TRPC</Link>
+		<Link class="border p-2" to="/test-http">HTTP</Link>
 	</nav>
 	<div>
 		<Route path="/">
