@@ -7,11 +7,13 @@
 	}
 </script>
 
-<main>
+<main class="p-2">
 	<div>
 		<p>Example</p>
 	</div>
-	<button on:click={testTRPC}>test trpc</button>
+	<button class="border p-2 bg-slate-400 shadow-sm" on:click={testTRPC}
+		>test trpc</button
+	>
 
 	<p>Result:</p>
 	<pre>
