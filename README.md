@@ -67,95 +67,145 @@ yarn workspace apiv1 dev
 ├── README.md
 ├── package.json
 ├── packages
-│   ├── common
-│   │   ├── index.ts
-│   │   ├── package.json
-│   │   ├── src
-│   │   │   ├── errors
-│   │   │   │   ├── BadRequest.error.ts
-│   │   │   │   ├── Forbidden.error.ts
-│   │   │   │   ├── HttpError.ts
-│   │   │   │   ├── InternalServer.error.ts
-│   │   │   │   ├── NotFound.error.ts
-│   │   │   │   ├── ServiceUnavailable.error.ts
-│   │   │   │   ├── Unauthorized.error.ts
-│   │   │   │   └── index.ts
-│   │   │   ├── index.ts
-│   │   │   ├── repositories
-│   │   │   │   └── User.repo.ts
-│   │   │   └── utils
-│   │   │       └── parser.util.ts
-│   │   └── tsconfig.json
-│   ├── db
-│   │   ├── env.example
-│   │   ├── index.ts
-│   │   ├── package.json
-│   │   ├── prisma
-│   │   │   ├── migrations
-│   │   │   │   ├── 20231022044921_change_user_table
-│   │   │   │   │   └── migration.sql
-│   │   │   │   └── migration_lock.toml
-│   │   │   └── schema.prisma
-│   │   ├── src
-│   │   │   ├── client.ts
-│   │   │   ├── index.ts
-│   │   │   ├── prisma.repo.ts
-│   │   │   └── seeds
-│   │   │       ├── index.ts
-│   │   │       └── user.seed.ts
-│   │   └── tsconfig.json
-│   ├── domain
-│   │   ├── index.ts
-│   │   ├── package.json
-│   │   ├── src
-│   │   │   ├── index.ts
-│   │   │   └── modules
-│   │   │       ├── auth
-│   │   │       │   ├── auth.service.ts
-│   │   │       │   ├── auth.validation.ts
-│   │   │       │   └── index.ts
-│   │   │       ├── example
-│   │   │       │   └── examaple.service.ts
-│   │   │       └── user
-│   │   │           ├── index.ts
-│   │   │           ├── user.service.ts
-│   │   │           └── user.validation.ts
-│   │   └── tsconfig.json
-│   └── infra
-│       ├── index.ts
-│       ├── package.json
-│       ├── src
-│       │   ├── http
-│       │   │   ├── HttpController.ts
-│       │   │   ├── index.ts
-│       │   │   ├── middlewares
-│       │   │   │   ├── ErrorHandler.middleware.ts
-│       │   │   │   └── Validator.middleware.ts
-│       │   │   ├── server.ts
-│       │   │   └── types.ts
-│       │   ├── index.ts
-│       │   └── trpc
-│       ├── tsconfig.json
-│       └── yarn-error.log
+│   ├── common
+│   │   ├── index.ts
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── errors
+│   │   │   │   ├── BadRequest.error.ts
+│   │   │   │   ├── Forbidden.error.ts
+│   │   │   │   ├── HttpError.ts
+│   │   │   │   ├── InternalServer.error.ts
+│   │   │   │   ├── NotFound.error.ts
+│   │   │   │   ├── ServiceUnavailable.error.ts
+│   │   │   │   ├── Unauthorized.error.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── http
+│   │   │   │   └── http.client.ts
+│   │   │   ├── index.ts
+│   │   │   ├── repositories
+│   │   │   │   ├── User.repo.ts
+│   │   │   │   └── index.ts
+│   │   │   └── utils
+│   │   │       └── parser.util.ts
+│   │   ├── tsconfig.json
+│   │   └── tsconfig.tsbuildinfo
+│   ├── db
+│   │   ├── env.example
+│   │   ├── index.ts
+│   │   ├── package.json
+│   │   ├── prisma
+│   │   │   ├── migrations
+│   │   │   │   ├── 20231022044921_change_user_table
+│   │   │   │   │   └── migration.sql
+│   │   │   │   └── migration_lock.toml
+│   │   │   └── schema.prisma
+│   │   ├── src
+│   │   │   ├── client.ts
+│   │   │   ├── index.ts
+│   │   │   ├── prisma.repo.ts
+│   │   │   └── seeds
+│   │   │       ├── index.ts
+│   │   │       └── user.seed.ts
+│   │   ├── tsconfig.json
+│   │   └── tsconfig.tsbuildinfo
+│   ├── domain
+│   │   ├── index.ts
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── index.ts
+│   │   │   └── modules
+│   │   │       ├── auth
+│   │   │       │   ├── auth.service.ts
+│   │   │       │   ├── auth.validation.ts
+│   │   │       │   └── index.ts
+│   │   │       ├── example
+│   │   │       │   └── examaple.service.ts
+│   │   │       └── user
+│   │   │           ├── index.ts
+│   │   │           ├── user.service.ts
+│   │   │           └── user.validation.ts
+│   │   ├── tsconfig.json
+│   │   └── tsconfig.tsbuildinfo
+│   └── infra
+│       ├── index.ts
+│       ├── package.json
+│       ├── src
+│       │   ├── http
+│       │   │   ├── HttpController.ts
+│       │   │   ├── index.ts
+│       │   │   ├── middlewares
+│       │   │   │   ├── ErrorHandler.middleware.ts
+│       │   │   │   └── Validator.middleware.ts
+│       │   │   ├── server.ts
+│       │   │   └── types.ts
+│       │   ├── index.ts
+│       │   └── trpc
+│       │       ├── client.ts
+│       │       ├── context.ts
+│       │       ├── index.ts
+│       │       ├── middlewares
+│       │       │   └── auth.middleware.ts
+│       │       ├── server.ts
+│       │       └── t.ts
+│       ├── tsconfig.json
+│       ├── tsconfig.tsbuildinfo
+│       └── yarn-error.log
 ├── projects
-│   ├── api_v1
-│   │   ├── package.json
-│   │   ├── src
-│   │   │   ├── controllers
-│   │   │   │   ├── auth.controller.ts
-│   │   │   │   └── user.controller.ts
-│   │   │   ├── main.ts
-│   │   │   └── routes
-│   │   │       ├── auth.routes.ts
-│   │   │       ├── example.route.ts
-│   │   │       └── user.route.ts
-│   │   └── tsconfig.json
-│   └── api_v2
-│       ├── package.json
-│       ├── src
-│       └── tsconfig.json
+│   ├── api_v1
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── controllers
+│   │   │   │   ├── auth.controller.ts
+│   │   │   │   └── user.controller.ts
+│   │   │   ├── main.ts
+│   │   │   └── routes
+│   │   │       ├── auth.routes.ts
+│   │   │       ├── example.route.ts
+│   │   │       └── user.route.ts
+│   │   └── tsconfig.json
+│   ├── api_v2
+│   │   ├── index.ts
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── index.ts
+│   │   │   ├── main.ts
+│   │   │   └── trpc
+│   │   │       └── router.ts
+│   │   ├── tsconfig.json
+│   │   └── tsconfig.tsbuildinfo
+│   └── svelte-client
+│       ├── README.md
+│       ├── index.html
+│       ├── package.json
+│       ├── postcss.config.js
+│       ├── public
+│       │   └── vite.svg
+│       ├── src
+│       │   ├── App.svelte
+│       │   ├── app.css
+│       │   ├── assets
+│       │   │   └── svelte.svg
+│       │   ├── lib
+│       │   │   ├── Counter.svelte
+│       │   │   └── clients
+│       │   │       └── trpc.client.ts
+│       │   ├── main.ts
+│       │   ├── pages
+│       │   │   ├── Home.svelte
+│       │   │   ├── HttpTest.svelte
+│       │   │   └── TrpcTest.svelte
+│       │   ├── router
+│       │   │   ├── Router.svelte
+│       │   │   └── index.ts
+│       │   └── vite-env.d.ts
+│       ├── svelte.config.js
+│       ├── tailwind.config.js
+│       ├── tsconfig.json
+│       ├── tsconfig.node.json
+│       └── vite.config.ts
 ├── scripts
-│   └── spawn_db.sh
+│   └── spawn_db.sh
 └── yarn.lock
 ```
 
