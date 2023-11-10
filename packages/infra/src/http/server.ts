@@ -1,7 +1,7 @@
 import express, { Express, NextFunction, Request, Response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-
+import http from "http";
 type ServerRoutes = { path: string; router: express.Router }[];
 
 export type CustomMiddleware = (
@@ -40,29 +40,28 @@ export const HttpServer = (
 		},
 	} = options;
 	// create an express app
-	const httpServer: Express = express();
+	const app: Express = express();
 
-	httpServer.use(cors(corsOptions));
+	app.use(cors(corsOptions));
 
-	httpServer.use(
-		bodyParser.urlencoded({ extended: false, ...bodyParserOptions })
-	);
-	httpServer.use(bodyParser.json(bodyParserOptions));
+	app.use(bodyParser.urlencoded({ extended: false, ...bodyParserOptions }));
+	app.use(bodyParser.json(bodyParserOptions));
 
 	for (const { path, router } of routes) {
-		httpServer.use(path, router);
+		app.use(path, router);
 	}
 
 	if (options.globalMiddlewares) {
 		for (const middleware of options?.globalMiddlewares) {
-			httpServer.use(middleware);
+			app.use(middleware);
 		}
 	}
 
 	// disable x-powered-by header
-	httpServer.disable("x-powered-by");
+	app.disable("x-powered-by");
 
 	const PORT = port ?? (process.env.HTTP_PORT || 4444);
+	const httpServer = http.createServer(app);
 	const start = () => {
 		try {
 			httpServer.listen(PORT, () => {
@@ -71,7 +70,7 @@ export const HttpServer = (
 		} catch (err) {
 			console.error("Http_server_failed to start:", err);
 		}
-		return httpServer;
+		return { httpServer, app };
 	};
 
 	return {
