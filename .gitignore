@@ -2,13 +2,16 @@ node_modules
 node_modules/*
 
 .env
+packages/**/dist
 packages/**/dist/**
 packages/**/node_modules/**
 packages/**/prisma/generated/*
 
+projects/**/dist
 projects/**/dist/**
 projects/**/node_modules/**
 projects/**/prisma/generated/*
 
+dist/
 dist/**/*
 yarn-error.log
