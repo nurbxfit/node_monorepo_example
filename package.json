@@ -12,13 +12,15 @@
     "projects/*"
   ],
   "devDependencies": {
+    "lerna": "^7.4.2"
   },
   "scripts": {
     "db:generate": "yarn worksapce @nurbxfit/db prisma generate",
     "db:migrate-dev": "yarn worksapce @nurbxfit/db prisma migrate dev",
     "db:seed": "yarn worksapce @nurbxfit/db seed",
-    "docker-run:db" : "sh ./scripts/spawn_db.sh",
+    "docker-run:db": "sh ./scripts/spawn_db.sh",
     "start:apiv2": "yarn workspace apiv2 dev",
     "start:apiv1": "yarn workspace apiv1 dev"
-  }
+  },
+  "dependencies": {}
 }
