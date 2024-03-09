@@ -1,6 +1,6 @@
 # Node.js Monorepo Example
 
-A simple example of a monorepo project using Node.js and Yarn workspaces. This repository serves as a reference for structuring a monorepo project. While it may seem complex for a simple project, it's intended for educational purposes and to demonstrate best practices.
+A simple example of a monorepo project using Node.js and Yarn workspaces. This repository serves as a reference for structuring a monorepo project. While it may seem complex for a simple project, it's intended for educational purposes
 
 # Features
 
